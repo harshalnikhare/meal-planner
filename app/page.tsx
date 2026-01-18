@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import db from "./lib/db";
 
 export default async function Home() {
@@ -7,6 +8,7 @@ export default async function Home() {
     <div>
       <h1>Meal Planner</h1>
       <p>{JSON.stringify(user)}</p>
+      <Button>Submit</Button>
     </div>
   );
 }
