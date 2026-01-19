@@ -2,6 +2,10 @@
 
 import { ThemeProvider as NextThemeProvider } from "next-themes";
 import { ReactNode } from "react";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { Toaster } from "./ui/sonner";
+
+const queryClient = new QueryClient();
 
 type ProvidersProps = {
   children: ReactNode;
@@ -9,14 +13,17 @@ type ProvidersProps = {
 
 const Providers = ({ children }: ProvidersProps) => {
   return (
-    <NextThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      {children}
-    </NextThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <NextThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <Toaster />
+        {children}
+      </NextThemeProvider>
+    </QueryClientProvider>
   );
 };
 
