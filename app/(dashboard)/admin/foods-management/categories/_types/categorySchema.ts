@@ -12,7 +12,7 @@ const categorySchema = z.intersection(
 
 type CategorySchema = z.infer<typeof categorySchema>;
 
-const categoryDefaultValues: categorySchema = {
+const categoryDefaultValues: CategorySchema = {
   action: "create",
   name: "",
 };
