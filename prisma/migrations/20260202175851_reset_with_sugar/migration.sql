@@ -23,7 +23,7 @@ CREATE TABLE "Food" (
     "fat" DOUBLE PRECISION,
     "carbohydrates" DOUBLE PRECISION,
     "fiber" DOUBLE PRECISION,
-    "suger" DOUBLE PRECISION,
+    "sugar" DOUBLE PRECISION,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "categoryId" INTEGER,
