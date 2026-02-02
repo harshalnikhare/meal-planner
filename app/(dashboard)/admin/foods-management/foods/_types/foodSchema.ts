@@ -8,15 +8,20 @@ const foodSchema = z.intersection(
     calories: regexSchema(patterns.zeroTo9999),
     protein: regexSchema(patterns.zeroTo9999),
     fat: regexSchema(patterns.zeroTo9999),
-    carbohyrates: regexSchema(patterns.zeroTo9999),
+    carbohydrates: regexSchema(patterns.zeroTo9999),
     fiber: regexSchema(patterns.zeroTo9999),
     sugar: regexSchema(patterns.zeroTo9999),
     categoryId: requiredStringSchema,
-    foodServingUnits: z.array(z.object({})),
+    foodServingUnits: z.array(
+      z.object({
+        foodServingUnitId: requiredStringSchema,
+        grams: regexSchema(patterns.zeroTo9999),
+      }),
+    ),
   }),
   z.discriminatedUnion("action", [
     z.object({ action: z.literal("create") }),
-    z.object({ action: z.literal("update") }),
+    z.object({ action: z.literal("update"), id: z.number() }),
   ]),
 );
 
@@ -28,7 +33,7 @@ const foodDefaultValues: FoodSchema = {
   name: "",
   categoryId: "",
   calories: "",
-  carbohyrates: "",
+  carbohydrates: "",
   fat: "",
   fiber: "",
   protein: "",
