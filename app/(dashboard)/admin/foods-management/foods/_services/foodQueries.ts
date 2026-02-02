@@ -111,14 +111,14 @@ const getFood = async (id: number): Promise<FoodSchema | null> => {
     id,
     name: res.name,
     calories: toStringSafe(res.calories),
-    carbohyrates: toStringSafe(res.carbohydrates),
+    carbohydrates: toStringSafe(res.carbohydrates),
     fat: toStringSafe(res.fat),
     fiber: toStringSafe(res.fiber),
     protein: toStringSafe(res.protein),
     sugar: toStringSafe(res.sugar),
     categoryId: toStringSafe(res.categoryId),
     foodServingUnits: res.foodServingUnit.map((item) => ({
-      foodServingUnit: toStringSafe(item.servingUnitId),
+      foodServingUnitId: toStringSafe(item.servingUnitId),
       grams: toStringSafe(item.grams),
     })),
   };
